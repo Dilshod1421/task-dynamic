@@ -11,7 +11,12 @@ import { CommentModule } from './comment/comment.module';
       isGlobal: true,
     }),
     SequelizeModule.forRoot({
-      uri: process.env.DB_URL,
+      dialect: 'postgres',
+      host: process.env.PG_HOST,
+      port: Number(process.env.PG_PORT),
+      username: process.env.PG_USER,
+      password: process.env.PG_PASS,
+      database: process.env.PG_DB,
       autoLoadModels: true,
       logging: true,
     }),
